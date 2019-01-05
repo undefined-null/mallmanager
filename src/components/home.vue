@@ -13,8 +13,8 @@
 					</div>
 				</el-col>
 				<el-col :span="2">
-					<div class="grid-content bg-purple">
-						<a href="javascript:;">退出</a>
+					<div class="grid-content bg-purple exit">
+						<a href="javascript:;" @click="exit()">退 出</a>
 					</div>
 				</el-col>
 			</el-row>
@@ -73,6 +73,13 @@
 			return {
 
 			};
+		},
+		methods: {
+			exit() {
+				localStorage.clear();
+				this.$router.push('/login');
+				this.$message.success('退出成功！');
+			}
 		}
 	}
 </script>
@@ -94,6 +101,10 @@
 
 	.header h2 {
 		color: #fff;
+	}
+	
+	.header .exit {
+		font-size: 20px;
 	}
 
 	.aside {}
