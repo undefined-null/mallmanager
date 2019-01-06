@@ -4,6 +4,8 @@ import Router from 'vue-router'
 import Login from '@/components/login';
 import Home from '@/components/home';
 import Users from '@/components/users';
+import Rights from '@/components/rights';
+import Roles from '@/components/roles';
 
 import {
 	Message
@@ -27,12 +29,21 @@ const router = new Router({
 				{
 					path: '/users',
 					component: Users
+				},
+				{
+					path: '/rights',
+					component: Rights
+				},
+				{
+					path: '/roles',
+					component: Roles
 				}
 			]
 		}
 	]
 });
 
+// 路由守卫
 router.beforeEach((to, from, next) => {
 	// console.log(to);
 	if (to.path === '/login') {
